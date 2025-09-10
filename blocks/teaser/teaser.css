@@ -1,57 +1,383 @@
-/* stylelint-disable no-descending-specificity */
-.teaser {
-    display: grid;
-    grid-template-areas: "teaser";
-    align-items: end;
-    justify-items: center;
+.teaser-wrapper {
+  width: 100%;
+  background: #ffffff;
+  position: relative;
+  padding: 80px 0;
+  overflow: hidden;
 }
 
-.teaser > div {
-    grid-area: teaser;
+/* Subtle background pattern matching CommVault's design */
+.teaser-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 15l23.09 13.35v26.7L40 68.35l-23.09-13.35V28.35L40 15z' fill='none' stroke='%23f1f5f9' stroke-width='0.8'/%3E%3C/svg%3E") repeat;
+  opacity: 0.4;
+  z-index: 1;
 }
 
-/* teaser image */
-.teaser > div:first-child {
-    width: 100%;
+.teaser.block {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
 }
 
-.teaser > div:first-child > div {
-    height: 40pc;
-    max-height: 40pc;
-    width: 100%;
+/* Image Container - CommVault professional styling */
+.teaser.block > div:first-child {
+  position: relative;
 }
 
-/* teaser content */
-.teaser > div:last-child {
-    width: 75%;
-    background-color: #fff;
-    min-height: 180px;
-    padding: 0 28px;
-    font-size: 18px;
-    margin: 0;
-    line-height: 1.75;
+.teaser.block > div:first-child > div {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08), 
+              0 6px 16px rgba(0, 0, 0, 0.06);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
 }
 
-.teaser picture {
-    width: 100%;
-    height: 100%;
+.teaser.block > div:first-child > div:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 32px 64px rgba(0, 0, 0, 0.12), 
+              0 12px 24px rgba(0, 0, 0, 0.08);
 }
 
-.teaser img {
-    margin-top: 0;
-    margin-bottom: 0;
-    object-fit: cover;
-    object-position: top;
-    width: 100%;
-    height: 100%;
-    max-height: 640px;
+/* CommVault signature overlay on image */
+.teaser.block > div:first-child > div::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 102, 204, 0.06) 0%,
+    transparent 40%,
+    rgba(255, 71, 87, 0.04) 100%
+  );
+  border-radius: 16px;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
 }
 
-.teaser h2 {
-    font-family: var(--body-font-family);
-    margin: .5em 0;
+.teaser.block > div:first-child > div:hover::after {
+  opacity: 0.8;
 }
 
-.teaser h2 a {
-    color: #202020
+.teaser.block picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.teaser.block img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.4s ease;
+  aspect-ratio: 16/10;
+  object-fit: cover;
+}
+
+.teaser.block > div:first-child > div:hover img {
+  transform: scale(1.05);
+}
+
+/* Content Container - CommVault typography system */
+.teaser.block > div:last-child {
+  position: relative;
+  padding: 0 20px 0 0;
+}
+
+.teaser.block > div:last-child > div > div {
+  position: relative;
+}
+
+/* CommVault H2 Styling - Exact brand match */
+.teaser.block h2 {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: clamp(28px, 3.5vw, 42px);
+  font-weight: 700;
+  line-height: 1.2;
+  color: #0f172a;
+  margin: 0 0 20px 0;
+  position: relative;
+  letter-spacing: -0.01em;
+}
+
+/* CommVault signature gradient accent under heading */
+.teaser.block h2::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #0066cc 0%, #ff4757 100%);
+  border-radius: 2px;
+}
+
+/* CommVault paragraph styling */
+.teaser.block p {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #64748b;
+  margin: 0;
+  max-width: 500px;
+}
+
+/* CommVault geometric accent pattern */
+.teaser.block > div:last-child::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  left: -40px;
+  width: 120px;
+  height: 120px;
+  background: url("image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16 4l11.31 6.53v13.94L16 31l-11.31-6.53V10.53L16 4z' fill='none' stroke='%230066cc' stroke-width='0.6' opacity='0.12'/%3E%3C/svg%3E") repeat;
+  z-index: -1;
+  animation: float-pattern 20s ease-in-out infinite;
+}
+
+@keyframes float-pattern {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(5deg);
+  }
+}
+
+/* Responsive Design - CommVault breakpoints */
+@media (max-width: 1024px) {
+  .teaser.block {
+    grid-template-columns: 1fr;
+    gap: 50px;
+    text-align: center;
+  }
+  
+  .teaser.block > div:last-child {
+    order: -1;
+    padding: 0;
+  }
+  
+  .teaser.block h2 {
+    font-size: clamp(24px, 5vw, 36px);
+  }
+  
+  .teaser.block p {
+    max-width: none;
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 768px) {
+  .teaser-wrapper {
+    padding: 60px 0;
+  }
+  
+  .teaser.block {
+    padding: 0 20px;
+    gap: 40px;
+  }
+  
+  .teaser.block h2 {
+    font-size: 28px;
+    margin-bottom: 16px;
+  }
+  
+  .teaser.block h2::after {
+    width: 50px;
+    height: 3px;
+  }
+  
+  .teaser.block p {
+    font-size: 16px;
+  }
+  
+  .teaser.block > div:first-child > div {
+    border-radius: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .teaser-wrapper {
+    padding: 40px 0;
+  }
+  
+  .teaser.block {
+    padding: 0 16px;
+    gap: 32px;
+  }
+  
+  .teaser.block h2 {
+    font-size: 24px;
+    letter-spacing: 0;
+  }
+  
+  .teaser.block p {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+}
+
+/* Loading Animation - CommVault style */
+.teaser.block img {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out 0.2s forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Focus states for accessibility */
+.teaser.block:focus-visible {
+  outline: 2px solid #0066cc;
+  outline-offset: 4px;
+}
+
+/* Print styles */
+@media print {
+  .teaser-wrapper {
+    background: white;
+    padding: 20px 0;
+  }
+  
+  .teaser-wrapper::before {
+    display: none;
+  }
+  
+  .teaser.block {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .teaser.block h2 {
+    color: #000000;
+    font-size: 24px;
+  }
+  
+  .teaser.block p {
+    color: #333333;
+    font-size: 14px;
+  }
+  
+  .teaser.block > div:first-child > div {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .teaser.block h2 {
+    color: #000000;
+  }
+  
+  .teaser.block p {
+    color: #333333;
+  }
+  
+  .teaser.block h2::after {
+    background: #000000;
+  }
+  
+  .teaser.block > div:first-child > div {
+    border: 2px solid #000000;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .teaser.block > div:first-child > div,
+  .teaser.block img,
+  .teaser.block > div:last-child::before {
+    transition: none;
+    animation: none;
+  }
+  
+  .teaser.block > div:first-child > div:hover {
+    transform: none;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .teaser-wrapper {
+    background: #0f172a;
+  }
+  
+  .teaser.block h2 {
+    color: #f1f5f9;
+  }
+  
+  .teaser.block p {
+    color: #cbd5e1;
+  }
+  
+  .teaser.block > div:first-child > div {
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  }
+  
+  .teaser-wrapper::before {
+    background: url("image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 15l23.09 13.35v26.7L40 68.35l-23.09-13.35V28.35L40 15z' fill='none' stroke='%23334155' stroke-width='0.8'/%3E%3C/svg%3E") repeat;
+  }
+}
+
+/* Additional CommVault professional enhancements */
+.teaser.block > div:first-child > div {
+  position: relative;
+}
+
+/* Subtle loading shimmer effect */
+.teaser.block > div:first-child > div::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    transparent 100%
+  );
+  animation: shimmer 3s ease-in-out infinite;
+  z-index: 1;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Hover state enhancements */
+.teaser.block > div:last-child {
+  transition: transform 0.3s ease;
+}
+
+.teaser.block:hover > div:last-child {
+  transform: translateX(8px);
 }
