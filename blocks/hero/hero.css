@@ -1,205 +1,116 @@
+/* Hero wrapper and container */
 .hero-wrapper {
   width: 100%;
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-  position: relative;
   overflow: hidden;
-}
-
-.hero-wrapper::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  background: url("image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 10l17.32 10v20L30 50l-17.32-10V20L30 10z' fill='none' stroke='%23e2e8f0' stroke-width='0.5'/%3E%3C/svg%3E") repeat;
-  opacity: 0.3;
-  z-index: 1;
 }
 
 .hero.block {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 80px 24px;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background-color: #f8f9fa;
+}
+
+.hero > div {
+  flex: 1;
+}
+
+/* Hero layout - split design */
+.hero.block {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
-  min-height: 600px;
-  position: relative;
-  z-index: 2;
+  max-width: 1400px;
+  margin: 0 auto;
+  min-height: 80vh;
 }
 
-/* Image Container - CommVault style */
-.hero.block > div:first-child {
+/* Image section */
+.hero > div:first-child {
   position: relative;
-  order: 2;
-}
-
-.hero.block > div:first-child > div {
-  position: relative;
-  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1), 
-              0 8px 24px rgba(0, 0, 0, 0.08);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.hero.block > div:first-child > div:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.15), 
-              0 12px 32px rgba(0, 0, 0, 0.12);
-}
-
-.hero.block picture {
-  display: block;
+.hero picture,
+.hero img {
   width: 100%;
   height: 100%;
-}
-
-.hero.block img {
-  width: 100%;
-  height: auto;
+  object-fit: cover;
   display: block;
-  transition: transform 0.4s ease;
 }
 
-.hero.block > div:first-child > div:hover img {
-  transform: scale(1.02);
+/* Text section */
+.hero > div:last-child {
+  display: flex;
+  align-items: center;
+  padding: 4rem 3rem;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
 }
 
-/* Content Container - CommVault typography */
-.hero.block > div:last-child {
-  order: 1;
-  position: relative;
-}
-
-.hero.block > div:last-child > div > div {
-  position: relative;
-}
-
-/* CommVault H1 Styling - Exact match */
-.hero.block h1 {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto```Helvetica Neue", Arial,```ns-serif;
-  font-size: clamp(32px, 4.5vw, 56px);
-  font-weight: 700;
-  line-height: 1.15;
-  color: #0f172a;
-  margin: 0;
-  position: relative;
+.hero h1 {
+  font-family: 'Arial', 'Helvetica Neue', sans-serif;
+  font-size: 3.2rem;
+  font-weight: 300;
+  line-height: 1.2;
+  color: #1a1a1a;
+  margin-bottom: 1.5rem;
   letter-spacing: -0.02em;
 }
 
-/* CommVault signature gradient accent */
-.hero.block h1::after {
+/* Waters-inspired color accents */
+.hero h1::after {
   content: '';
-  position: absolute;
-  bottom: -12px;
-  left: 0;
-  width: 80px;
+  display: block;
+  width: 60px;
   height: 4px;
-  background: linear-gradient(90deg, #0066cc 0%, #ff4757 100%);
-  border-radius: 2px;
+  background: linear-gradient(90deg, #0066cc 0%, #004499 100%);
+  margin-top: 2rem;
 }
 
-/* CommVault brand color emphasis on key words */
-.hero.block h1 {
-  background: linear-gradient(
-    135deg, 
-    #0f172a 0%, 
-    #0f172a 60%, 
-    #0066cc 100%
-  );
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-size: 200% 100%;
-  animation: shimmer-text 3s ease-in-out infinite;
-}
-
-@keyframes shimmer-text {
-  0%, 100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
-/* CommVault geometric pattern overlay```
-.hero.block > div:last-child::before {
-  content: '';
-  position: absolute;
-  top: -40px;
-  left: -40px;
-  width: 120px;
-  height: 120px;
-  background: url("image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 5l15.59 9v18L20 41l-15.59-9V14L20 5z' fill='none' stroke='%230066cc' stroke-width='0.8' opacity='0.15'/%3E%3C/svg%3E") repeat;
-  z-index: -1;
-}
-
-/* Responsive Design - CommVault breakpoints */
-@media (max-width: 1024px) {
+/* Responsive design */
+@media screen and (max-width: 768px) {
   .hero.block {
     grid-template-columns: 1fr;
-    gap: 40px;
-    padding: 60px 24px;
-    text-align: center;
+    min-height: auto;
   }
   
-  .hero.block > div:first-child {
-    order: 1;
+  .hero > div:last-child {
+    padding: 2rem 1.5rem;
   }
   
-  .hero.block > div:last-child {
-    order: 2;
-  }
-  
-  .hero.block h1 {
-    font-size: clamp(28px, 6vw, 44px);
+  .hero h1 {
+    font-size: 2.4rem;
   }
 }
 
-@media (max-width: 768px) {
-  .hero.block {
-    padding: 40px 20px;
-    gap: 32px;
-    min-height: 500px;
+@media screen and (max-width: 480px) {
+  .hero h1 {
+    font-size: 2rem;
   }
   
-  .hero.block h1 {
-    font-size: clamp(24px, 7vw, 36px);
-    line-height: 1.2;
-  }
-  
-  .hero.block h1::after {
-    width: 60px;
-    height: 3px;
+  .hero > div:last-child {
+    padding: 1.5rem 1rem;
   }
 }
 
-@media (max-width: 480px) {
-  .hero.block {
-    padding: 32px 16px;
-    gap: 24px;
-  }
-  
-  .hero.block h1 {
-    font-size: 24px;
-    letter-spacing: -0.01em;
-  }
+/* Additional corporate styling touches */
+.hero > div:last-child > div {
+  width: 100%;
 }
 
-/* CommVault loading state */
-.hero.block img[loading="eager"] {
-  opacity: 0;
-  animation: fadeInImage 0.8s ease-out 0.3s forwards;
+.hero [data-aue-type="richtext"] {
+  position: relative;
 }
 
-@keyframes fadeInImage {
+/* Subtle animation on load */
+.hero h1 {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
@@ -207,117 +118,23 @@
   }
 }
 
-/* Focus states for accessibility */
-.hero.block:focus-visible {
-  outline: 2px solid #0066cc;
-  outline-offset: 4px;
+/* Professional shadow and depth */
+.hero > div:last-child {
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.05);
+  position: relative;
+  z-index: 2;
 }
 
-/* Print styles */
-@media print {
-  .hero-wrapper {
-    background: white;
-  }
-  
-  .hero-wrapper::before {
-    display: none;
-  }
-  
-  .hero.block {
-    grid-template-columns: 1fr;
-    gap: 20px;
-    padding: 20px;
-  }
-  
-  .hero.block h1 {
-    color: #000000 !important;
-    background: none !important;
-    -webkit-text-fill-color: initial !important;
-  }
-}
-
-/* High contrast mode */
-@media (prefers-contrast: high) {
-  .hero.block h1 {
-    color: #000000 !important;
-    background: none !important;
-    -webkit-text-fill-color: initial !important;
-  }
-  
-  .hero.block h1::after {
-    background: #000000;
-  }
-}
-
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  .hero.block h1 {
-    animation: none;
-  }
-  
-  .hero.block > div:first-child > div,
-  .hero.block img,
-  .hero.block img[loading="eager"] {
-    transition: none;
-    animation: none;
-  }
-  
-  .hero.block > div:first-child > div:hover {
-    transform: none;
-  }
-}
-
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-  .hero-wrapper {
-    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
-  }
-  
-  .hero.block h1 {
-    color: #f1f5f9;
-    background: linear-gradient(
-      135deg, 
-      #f1f5f9 0%, 
-      #f1f5f9 60%, 
-      #60a5fa 100%
-    );
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  
-  .hero-wrapper::before {
-    background: url("image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 10l17.32 10v20L30 50l-17.32-10V20L30 10z' fill='none' stroke='%23475569' stroke-width='0.5'/%3E%3C/svg%3E") repeat;
-  }
-}
-
-/* Additional CommVault-specific enhancements */
-.hero.block > div:first-child > div::after {
+/* Optional: Add subtle texture */
+.hero > div:last-child::before {
   content: '';
   position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(0, 102, 204, 0.08) 0%,
-    transparent 50%,
-    rgba(255, 71, 87, 0.05) 100%
-  );
-  border-radius: 12px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(0, 102, 204, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(0, 68, 153, 0.03) 0%, transparent 50%);
   pointer-events: none;
-}
-
-/* Subtle pulsing effect for key elements */
-.hero.block h1::after {
-  animation: pulse-accent 2s ease-in-out infinite;
-}
-
-@keyframes pulse-accent {
-  0%, 100% {
-    opacity: 1;
-    transform: scaleX(1);
-  }
-  50% {
-    opacity: 0.8;
-    transform: scaleX(1.1);
-  }
 }
