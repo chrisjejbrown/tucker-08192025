@@ -1,154 +1,167 @@
-/* Container/Grid System */
-ul {
+/* Typography styling - Waters brand approach */
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
+}
+
+/* Cards container wrapper */
+.cards-wrapper {
+  background-color: #f8f9fa;
+  padding: 4rem 0;
+}
+
+/* Main cards block */
+.cards.block {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Cards grid layout */
+.cards.block ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 32px;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  max-width: 1200px;
-  width: 100%;
+  gap: 2rem;
+  align-items: start;
 }
 
-/* Card Base Styling */
-li {
+/* Individual card styling */
+.cards.block li {
   background: #ffffff;
   border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
   overflow: hidden;
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s ease;
   border: 1px solid #e5e7eb;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
 }
 
-/* CommVault's signature hover effect */
-li:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08), 
-              0 8px 16px rgba(0, 0, 0, 0.06);
-  border-color: #0066cc;
+.cards.block li:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
-/* Image Container - CommVault style */
+/* Card image section */
 .cards-card-image {
   position: relative;
-  height: 200px;
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: #f1f5f9;
 }
 
-.cards-card-image picture {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
+.cards-card-image picture,
 .cards-card-image img {
   width: 100%;
-  height: 100%;
+  height: 200px;
   object-fit: cover;
+  display: block;
   transition: transform 0.3s ease;
 }
 
-li:hover .cards-card-image img {
+.cards.block li:hover .cards-card-image img {
   transform: scale(1.05);
 }
 
-/* CommVault brand gradient overlay */
-.cards-card-image::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg, 
-    transparent 0%, 
-    rgba(0, 102, 204, 0.03) 100%
-  );
-  pointer-events: none;
-}
-
-/* Card Body - Exact CommVault spacing */
+/* Card content body */
 .cards-card-body {
-  padding: 24px;
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  background: #ffffff;
-  position: relative;
+  padding: 1.5rem;
 }
 
-/* CommVault Typography System */
-.cards-card-body div[data-aue-type="richtext"] {
-  flex-grow: 1;
-}
-
-/* Title Styling - CommVault brand font weight and sizing */
-.cards-card-body p:first-child {
-  margin: 0 0 12px 0;
-  padding: 0;
-}
-
+/* Typography styling - Waters brand approach */
 .cards-card-body strong {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  font-size: 20px;
+  font-family: 'Arial', 'Helvetica Neue', sans-serif;
+  font-size: 1.25rem;
   font-weight: 600;
+  color: #1f2937;
   line-height: 1.3;
-  color: #0f172a;
+  margin-bottom: 0.75rem;
   display: block;
-  margin: 0 0 16px 0;
-  position: relative;
 }
 
-/* CommVault signature accent line */
+.cards-card-body p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.cards-card-body p:first-of-type {
+  margin-bottom: 0.75rem;
+}
+
+.cards-card-body p:last-of-type {
+  color: #6b7280;
+  font-size: 0.95rem;
+  margin-bottom: 0;
+}
+
+/* Waters brand color accent */
 .cards-card-body strong::after {
   content: '';
-  position: absolute;
-  bottom: -6px;
-  left: 0;
+  display: block;
   width: 40px;
   height: 3px;
-  background: linear-gradient(90deg, #0066cc 0%, #ff4757 100%);
+  background: linear-gradient(90deg, #0066cc 0%, #004499 100%);
+  margin-top: 0.5rem;
   border-radius: 2px;
 }
 
-/* Description Text - CommVault corporate style */
-.cards-card-body p:last-child {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
-  color: #64748b;
-  margin: 0;
-  flex-grow: 1;
+/* Responsive design */
+@media screen and (max-width: 768px) {
+  .cards.block {
+    padding: 0 1rem;
+  }
+  
+  .cards.block ul {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .cards-card-body {
+    padding: 1.25rem;
+  }
+  
+  .cards-card-body strong {
+    font-size: 1.125rem;
+  }
 }
 
-/* CommVault subtle pattern overlay */
-li::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 80px;
-  height: 80px;
-  background: url("image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2l9.09 5.26v10.48L12 23l-9.09-5.26V7.26L12 2z' fill='none' stroke='%23e2e8f0' stroke-width='0.5'/%3E%3C/svg%3E") repeat;
-  opacity: 0.4;
-  z-index: 1;
+@media screen and (max-width: 480px) {
+  .cards-wrapper {
+    padding: 2rem 0;
+  }
+  
+  .cards.block {
+    padding: 0 0.75rem;
+  }
+  
+  .cards.block ul {
+    gap: 1rem;
+  }
+  
+  .cards-card-body {
+    padding: 1rem;
+  }
+  
+  .cards-card-image img {
+    height: 180px;
+  }
 }
 
-.cards-card-body {
-  position: relative;
-  z-index: 2;
+/* Enhanced accessibility and interaction states */
+.cards.block li {
+  cursor: pointer;
 }
 
-/* Loading State - CommVault style shimmer */
+.cards.block li:focus-within {
+  outline: 2px solid #0066cc;
+  outline-offset: 2px;
+}
+
+/* Loading state for images */
 .cards-card-image img[loading="lazy"] {
-  background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
   background-size: 200% 100%;
-  animation: shimmer 2s infinite;
+  animation: shimmer 1.5s infinite;
 }
 
 @keyframes shimmer {
@@ -160,118 +173,29 @@ li::before {
   }
 }
 
-/* Focus States for Accessibility */
-li:focus-visible {
-  outline: 2px solid #0066cc;
-  outline-offset: 4px;
+/* Professional corporate styling touches */
+.cards.block ul::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #0066cc, transparent);
+  transform: translateX(-50%);
+  margin-top: -2rem;
 }
 
-/* Responsive Design - CommVault breakpoints */
-@media (max-width: 768px) {
-  ul {
-    grid-template-columns: 1fr;
-    gap: 24px;
-    padding: 0 16px;
-  }
-  
-  .cards-card-body {
-    padding: 20px;
-  }
-  
-  .cards-card-body strong {
-    font-size: 18px;
-  }
-  
-  .cards-card-body p:last-child {
-    font-size: 15px;
-  }
-  
-  .cards-card-image {
-    height: 180px;
-  }
-}
-
-@media (max-width: 480px) {
-  ul {
-    gap: 20px;
-  }
-  
-  .cards-card-body {
-    padding: 16px;
-  }
-  
-  .cards-card-body strong {
-    font-size: 16px;
-    margin-bottom: 12px;
-  }
-  
-  .cards-card-body p:last-child {
-    font-size: 14px;
-  }
-}
-
-/* Print Styles */
-@media print {
-  li {
-    break-inside: avoid;
-    box-shadow: none;
-    border: 1px solid #ccc;
-  }
-  
-  li:hover {
-    transform: none;
-  }
-}
-
-/* High Contrast Mode Support */
-@media (prefers-contrast: high) {
-  li {
-    border-width: 2px;
-  }
-  
-  .cards-card-body strong {
-    color: #000000;
-  }
-  
-  .cards-card-body p:last-child {
-    color: #333333;
-  }
-}
-
-/* Reduced Motion Support */
-@media (prefers-reduced-motion: reduce) {
-  li,
-  .cards-card-image img,
-  .cards-card-image img[loading="lazy"] {
-    transition: none;
-    animation: none;
-  }
-  
-  li:hover {
-    transform: none;
-  }
-}
-
-/* Dark Mode Support (if needed) */
-@media (prefers-color-scheme: dark) {
-  li {
-    background: #1e293b;
-    border-color: #334155;
-  }
-  
-  .cards-card-body {
-    background: #1e293b;
-  }
-  
-  .cards-card-body strong {
-    color: #f1f5f9;
-  }
-  
-  .cards-card-body p:last-child {
-    color: #cbd5e1;
-  }
-  
-  .cards-card-image {
-    background: linear-gradient(135deg, #334155 0%, #475569 100%);
-  }
+/* Subtle grid pattern background */
+.cards-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 25px 25px, rgba(0, 102, 204, 0.02) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
 }
