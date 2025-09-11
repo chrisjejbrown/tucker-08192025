@@ -58,9 +58,9 @@
 --fixed-font-family: "Roboto Mono", menlo, consolas, "Liberation Mono", monospace;
 
 /* colors */
---text-color: #ffffff;
+--text-color: #2d3439;
 --link-color: #ffffff;
---link-hover-color: Invalid input color;
+--link-hover-color: #005788;
 --background-color: #ffffff;
 --overlay-background-color: #eeeeee;
 --highlight-background-color: #cccccc;
