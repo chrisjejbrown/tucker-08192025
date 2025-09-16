@@ -227,7 +227,7 @@ main .section {
 }
 
 /* section metadata */
-main .section.light,
+main .section.white,
 main .section.highlight {
   background-color: var(--light-color);
 }
@@ -243,8 +243,3 @@ ol > li > ol {
 ol > li > ol > li > ol {
   list-style-type: lower-roman;
 }
-
-Sign in
-
-Sign in
-Sign in to continue
