@@ -228,7 +228,7 @@ main .section {
 
 /* section metadata */
 main .section.white {
-  background-color: #ffffff;
+  background-color: #000000;
 }
 main .section.black {
   background-color: #ffffff;
