@@ -179,11 +179,22 @@
     "id": "section",
     "fields": [
       {
-        "component": "text",
-        "name": "style",
-        "value": "",
+        "component": "select",
         "label": "Style",
-        "valueType": "string"
+        "name": "style",
+        "valueType": "string",
+        "options": [
+          { "name": "White", "value": "white" },
+          { "name": "Black", "value": "black" },
+          { "name": "Grey", "value": "grey" }
+        ]
+      },
+      {
+        "component": "text-input",
+        "valueType": "string",
+        "name": "opacity",
+        "label": "Opacity",
+        "value": "1"
       }
     ]
   },
