@@ -1,5 +1,32 @@
 [
   {
+    "id": "page-metadata",
+    "fields": [
+      {
+        "component": "text-input",
+        "valueType": "string",
+        "name": "pagetitle",
+        "value": "",
+        "label": "Page Title"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "jcr:description",
+        "value": "",
+        "label": "Description"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "keywords",
+        "value": "",
+        "label": "Keywords",
+        "multi": true
+      }
+    ]
+  },
+  {
     "id": "title",
     "fields": [
       {
