@@ -228,10 +228,10 @@ main .section {
 
 /* section metadata */
 main .section.white {
-  background-color: #000000;
+  background-color: #ffffff;
 }
 main .section.black {
-  background-color: #ffffff;
+  background-color: #000000;
 }
 main .section.grey {
   background-color: #aaaaaa;
