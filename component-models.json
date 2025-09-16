@@ -184,6 +184,7 @@
         "name": "style",
         "valueType": "string",
         "options": [
+          { "name": "Transparent", "value": "none" },
           { "name": "White", "value": "white" },
           { "name": "Black", "value": "black" },
           { "name": "Grey", "value": "grey" }
