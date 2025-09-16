@@ -183,6 +183,27 @@
         "value": "",
         "label": "Text",
         "valueType": "string"
+      },
+      {
+        "component": "select",
+        "name": "color",
+        "value": "",
+        "label": "Text Color",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "default",
+            "value": "#ffffff"
+          },
+          {
+            "name": "Black",
+            "value": "#000000"
+          },
+          {
+            "name": "Grey",
+            "value": "#1C6CB3"
+          }
+        ]
       }
     ]
   },
