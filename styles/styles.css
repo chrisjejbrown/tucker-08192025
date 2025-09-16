@@ -236,6 +236,9 @@ main .section.black {
 main .section.grey {
   background-color: #aaaaaa;
 }
+main .section.none {
+  background: none;
+}
 
 ol {
   list-style-type: decimal;
