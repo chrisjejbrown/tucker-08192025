@@ -38,6 +38,12 @@
   --heading-font-family: var(--body-font-family);
   --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace;
 
+  /* PAX8 */
+  --heading-font-family: Poppins, sans-serif;
+--body-font-family: Poppins, sans-serif;
+--fixed-font-family: "Roboto Mono", menlo, consolas, "Liberation Mono", monospace;
+
+  
   /* body sizes */
   --body-font-size-m: 22px;
   --body-font-size-s: 18px;
