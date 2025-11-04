@@ -23,6 +23,16 @@
   --highlight-background-color: #cccccc;
   --background-color-light: #a5610f;
 
+
+  /* PAX8 */
+
+  --text-color: #000000;
+--link-color: #196ef9;
+--background-color: #ffffff;
+--overlay-background-color: #eeeeee;
+--highlight-background-color: #cccccc;
+
+
   /* fonts */
   --body-font-family: roboto, roboto-fallback;
   --heading-font-family: var(--body-font-family);
@@ -46,6 +56,19 @@
 
   /* nav height */
   --nav-height: 64px;
+
+  /* PAX8 */
+
+  --heading-font-size-xxl: 68px;
+--heading-font-size-xl: 48px;
+--heading-font-size-l: 36px;
+--heading-font-size-m: 30px;
+--heading-font-size-s: 26px;
+--heading-font-size-xs: 20px;
+--body-font-size-m: 20px;
+--body-font-size-s: 17px;
+--body-font-size-xs: 16px;
+--body-font-size-xxs: 15px;
 }
 
 @font-face {
